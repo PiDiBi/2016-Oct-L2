@@ -31,7 +31,7 @@ The following is required to complete this module:
 
 - [Microsoft Visual Studio Community 2015][1] or greater
 - [Microsoft Azure Storage Explorer][2] or any other tool to manage Azure Storage
-- [Microsoft Azure PowerShell][3] (1.0 or above) OR [Azure CLI][4] (You will need NodeJS installed on your machine in order to use Azure CLI)
+- [Microsoft Azure PowerShell][3] (1.0 or above) OR [Azure CLI][4] (You will need NodeJS installed on your machine in order to use Azure CLI) (instructions below are for using the cross-platform CLI.  You can perform all the same tasks with PowerShell, though, you'll need to look them up)
 - Putty or any other ssh tool
 
 [1]: https://www.visualstudio.com/products/visual-studio-community-vs
@@ -108,7 +108,7 @@ In this section you will create a new storage container, and load sample data th
 
 1. Create new blob containers by right clicking on the storage account name and clicking 'Create Blob Container'.
 
-1. Create the following two private containers:
+1. Create the following two containers and mark them public access for blobs:
 	1. partsunlimited
 	1. processeddata
 
@@ -1244,67 +1244,67 @@ In this task, you'll create the input and output tables corresponding to the lin
 >**NOTE**: Using the 'Clone' option for the ADF JSON helps speed up the process.
  
 	````JavaScript
-			{
-			"name": "StructuredProductCatalogSQL",
-			"properties": {
-				"type": "AzureSqlDWTable",
-				"linkedServiceName": "AzureSqlDWLinkedService",
-				"structure": [
-					{
-						"name": "skuNumber",
-						"type": "String"
-					},
-					{
-						"name": "id",
-						"type": "Int32"
-					},
-					{
-						"name": "productId",
-						"type": "String"
-					},
-					{
-						"name": "categoryId",
-						"type": "String"
-					},
-					{
-						"name": "categoryName",
-						"type": "String"
-					},
-					{
-						"name": "title",
-						"type": "String"
-					},
-					{
-						"name": "price",
-						"type": "Double"
-					},
-					{
-						"name": "salePrice",
-						"type": "Double"
-					},
-					{
-						"name": "costPrice",
-						"type": "Double"
-					}			
-				],
-				"typeProperties": {
-					"tableName": "adw.DimProductCatalog"
+	{
+		"name": "StructuredProductCatalogSQL",
+		"properties": {
+			"type": "AzureSqlDWTable",
+			"linkedServiceName": "AzureSqlDWLinkedService",
+			"structure": [
+				{
+					"name": "skuNumber",
+					"type": "String"
 				},
-				"external":true,
-				"availability": {
-					"frequency": "Day",
-					"interval": 1
-				}
+				{
+					"name": "id",
+					"type": "Int32"
+				},
+				{
+					"name": "productId",
+					"type": "String"
+				},
+				{
+					"name": "categoryId",
+					"type": "String"
+				},
+				{
+					"name": "categoryName",
+					"type": "String"
+				},
+				{
+					"name": "title",
+					"type": "String"
+				},
+				{
+					"name": "price",
+					"type": "Double"
+				},
+				{
+					"name": "salePrice",
+					"type": "Double"
+				},
+				{
+					"name": "costPrice",
+					"type": "Double"
+				}			
+			],
+			"typeProperties": {
+				"tableName": "adw.DimProductCatalog"
+			},
+			"external":true,
+			"availability": {
+				"frequency": "Day",
+				"interval": 1
 			}
 		}
-
+	}
 	```` 
 
  1. Click **Deploy** on the toolbar to deploy the dataset.
  
-		![Data sets created](Images/ex1task3-datasets-created.png?raw=true "Data sets created")
+ 	![Data sets created](Images/ex1task3-datasets-created.png?raw=true "Data sets created")
 
-		_Data sets created_
+	_Data sets created_
+	
 
 Now you finished creating the input/output datasets and the associated linked services for the pipelines of the Data Factory. In the upcoming exercises you will create the pipelines using the datasets and linked services you just created.
 

@@ -32,7 +32,7 @@ The following is required to complete this module:
 - [Microsoft Visual Studio Community 2015][1] or greater
 - [Microsoft Command Line Utilities 13.1 for SQL Server][2] or greater
 OR
-- [Node JS][3] & [SQL commandline utility for NodeJS][4] 
+- [Node JS][3] & [MS SQL commandline utility for NodeJS][4] 
 
 
 [1]: https://www.visualstudio.com/products/visual-studio-community-vs
@@ -46,7 +46,7 @@ OR
 ### Setup (To be completed if you did not complete Module 2) ###
 In order to work on this exercise, it is recommended that you complete module 2. However, if you have not completed module 2, please follow this setup in order to successfully complete this exercise.
 
->**Note:** If you've completed **Module 2**, you may **skip the setup** and start with Exercise #1. However, we recommend having a seperate setup for Module 3.
+>**Note:** If you've completed **Module 2**, you may **skip the setup** and start with Exercise #1.
 
 <a name="SqlDWCreation"> </a>
 #### SQL Data Warehouse Creation #####
@@ -185,7 +185,7 @@ Navigate to the Setup Folder under 'Module 3'. You will find a folder called Set
 
 	![Import Data into SQL DW using bcp](Images/setup-bcp.jpg?raw=true "Import Data into SQL DW using bcp")
 		
-			_Import Data into SQL DW using bcp_
+	_Import Data into SQL DW using bcp_
 
 
 1. Similarly, let's upload our Fact data. Since our Fact data is made up of multiple files, we'll run the bcp command multiple times.
@@ -448,14 +448,17 @@ Row-level security is an important feature for ISVs and SaaS application provide
 
 	SELECT COUNT(*) from App.FactWebsiteActivity
 	````
-		![Show tables](Images/ex3-show-tables-app-view.png?raw=true "Show tables")
-		
+	
+	![Show tables](Images/ex3-show-tables-app-view.png?raw=true "Show tables")
+	_Show Tables Command_
 
 1. Let's also run a simple select query on the view to ensure we are not seeing data that we aren't supposed to.
 	````
 	SELECT TOP 200 * from App.FactWebsiteActivity
 	````
-		![Select top 200 rows](Images/ex3-select-query.png?raw=true "Select top 200 rows")
+	
+	![Select top 200 rows](Images/ex3-select-query.png?raw=true "Select top 200 rows")
+	_Select top 200 rows_
 
 1. Let's run the steps again for the other user to ensure that we see a different dataset than what was just returned by the SELECT query.
 
